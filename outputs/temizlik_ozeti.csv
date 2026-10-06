@@ -1,0 +1,15 @@
+﻿Tablo,Sorun,Etkilenen_Satir_veya_Magaza,Karar
+train,Aynı mağaza-gün tekrar eden satır,0,"Sorun yok, işlem yapılmadı"
+train,DayOfWeek ile tarih uyumsuz,0,"Sorun yok, işlem yapılmadı"
+train,Kapalı gün (Open=0) ama satış>0,0,"Sorun yok, işlem yapılmadı"
+train,Negatif satış,0,"Sorun yok, işlem yapılmadı"
+train,Eksik tarih kaydı (mağaza-gün),33121,Doldurulmadı. 180 mağazada 2014 Temmuz-Aralık kaydı yok; eksik_gunler_ozeti.csv'ye yazıldı
+train,Open=1 ama Sales=0,54,Satırlar silindi (mantıksız kayıt)
+train,"Mağaza kapalı gün (Open=0, Sales=0)",172817,Satırlar modelleme tablosundan çıkarıldı
+train,Mağaza içi aykırı satış (3xIQR dışı),1113,"Silinmedi, Sales_Aykiri=1 ile işaretlendi"
+store,CompetitionDistance eksik,3,"Medyan (2325 m) ile dolduruldu, işaretlendi"
+store,Rakip açılış yılı mantıksız (<1950),1,Boş (bilinmiyor) yapıldı
+store,Rakip açılış ay/yıl bilgisi boş,355,"Doldurulmadı, işaretlendi"
+store,"Promo2 yok, bu yüzden hafta/yıl/aralık boş (yapısal eksik)",544,"Aralık='Yok', hafta/yıl=0"
+store,PromoInterval'da 'Sept' yazımı,106,'Sep' olarak düzeltildi
+test,Open eksik,11,Mağazanın geçmiş haftanın günü davranışına göre dolduruldu
